@@ -4,6 +4,7 @@ import rover.api.CardinalPoint
 import rover.api.Movement
 import rover.api.Point
 import rover.api.Position
+import rover.app.exception.CellNotFreeException
 import rover.app.map.Locator
 import rover.app.marsrover.MarsRover
 import spock.lang.Specification
@@ -18,13 +19,24 @@ class MarsRoverServiceImplSpec extends Specification{
 
     private MarsRoverServiceImpl marsRoverService = new MarsRoverServiceImpl(locator, marsRover)
 
-    def "move"() {
+    def "move - happy case"() {
         given:
             marsRover.position >> POSITION
         when:
             marsRoverService.move(MOVEMENT)
         then:
             1 * locator.move(MOVEMENT, POSITION)
+    }
+
+    def "move - obstacle found"() {
+        given:
+            marsRover.position >> POSITION
+            locator.move(MOVEMENT, POSITION) >> { throw new CellNotFreeException() }
+        when:
+            marsRoverService.move(MOVEMENT)
+        then:
+            thrown(CellNotFreeException)
+
     }
 
     def "getMarsRoverPosition"() {

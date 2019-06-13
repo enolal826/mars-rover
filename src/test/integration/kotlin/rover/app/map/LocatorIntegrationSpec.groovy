@@ -8,10 +8,7 @@ import rover.app.exception.CellNotFreeException
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class LocatorSpec extends Specification {
-
-    private Map map = Mock(Map)
-    private Locator locator = new Locator(map)
+class LocatorIntegrationSpec extends Specification {
 
     private static MOVEMENT_1 = Movement.LEFT
     private static STARTING_POSITION_1 = new Position(new Point(2,3), CardinalPoint.SOUTH)
@@ -23,18 +20,25 @@ class LocatorSpec extends Specification {
 
     private static MOVEMENT_3 = Movement.FORWARD
     private static STARTING_POSITION_3 = new Position(new Point(1,0), CardinalPoint.NORTH)
-    private static ENDING_POSITION_3 = new Position(new Point(1,4), CardinalPoint.NORTH)
+    private static ENDING_POSITION_3 = new Position(new Point(1,5), CardinalPoint.NORTH)
 
     private static MOVEMENT_4 = Movement.BACKWARD
     private static STARTING_POSITION_4 = new Position(new Point(0,3), CardinalPoint.NORTH)
     private static ENDING_POSITION_4 = new Position(new Point(0,4), CardinalPoint.NORTH)
 
+    private static MOVEMENT_5 = Movement.BACKWARD
+    private static STARTING_POSITION_5 = new Position(new Point(1,3), CardinalPoint.SOUTH)
+    private static ENDING_POSITION_5 = new Position(new Point(1,3), CardinalPoint.SOUTH)
+
+    private Map map = new Map(6,4)
+    private Locator locator = new Locator(map)
+
+    def setup() {
+        setObstacles()
+    }
+
     @Unroll
-    def "move - happy case with #desc movement"() {
-        given:
-            map.isCellFree(endingPosition.point) >> true
-            map.numberOfColumns() >> 5
-            map.numberOfRows() >> 5
+    def "move - happy case #desc"() {
         when:
             locator.move(movement, startingPosition)
         then:
@@ -48,14 +52,16 @@ class LocatorSpec extends Specification {
     }
 
     def "move - obstacle found"() {
-        given:
-            map.isCellFree(ENDING_POSITION_4.point) >> false
-            map.numberOfColumns() >> 5
-            map.numberOfRows() >> 5
         when:
-            locator.move(MOVEMENT_4, STARTING_POSITION_4)
+            locator.move(MOVEMENT_5, STARTING_POSITION_5)
         then:
+            STARTING_POSITION_5 == ENDING_POSITION_5
             thrown(CellNotFreeException)
+    }
+
+    private def setObstacles() {
+        map.setCellValue(new Point(1, 2), MapCell.OBSTACLE)
+        map.setCellValue(new Point(2, 2), MapCell.OBSTACLE)
     }
 
 }
