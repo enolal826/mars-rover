@@ -27,7 +27,7 @@ class MarsRoverControllerSpec extends Specification {
         given:
             marsRoverDataReader.askForSetup() >> MARS_ROVER_SETUP
             marsRoverDataReader.askForMovements() >> MOVEMENT_LIST
-            marsRoverFactory.createMarsRover(POSITION, MAP) >> marsRoverService
+            marsRoverFactory.createMarsRoverService(POSITION, MAP) >> marsRoverService
         when:
             marsRoverController.execute()
         then:
@@ -38,7 +38,7 @@ class MarsRoverControllerSpec extends Specification {
         given:
             marsRoverDataReader.askForSetup() >> MARS_ROVER_SETUP
             marsRoverDataReader.askForMovements() >> MOVEMENT_LIST
-            marsRoverFactory.createMarsRover(POSITION, MAP) >> marsRoverService
+            marsRoverFactory.createMarsRoverService(POSITION, MAP) >> marsRoverService
             marsRoverService.move(_) >> { throw new CellNotFreeException() }
         when:
             marsRoverController.execute()

@@ -10,7 +10,7 @@ class MarsRoverController(private val marsRoverDataReader: MarsRoverDataReader,
         val setup = marsRoverDataReader.askForSetup()
         val movements = marsRoverDataReader.askForMovements()
 
-        val service = marsRoverFactory.createMarsRover(setup.position, setup.map)
+        val service = marsRoverFactory.createMarsRoverService(setup.position, setup.map)
 
         try {
             movements.forEach {

@@ -65,7 +65,8 @@ testing purposes.
 
 ## Improvements
 - In a real-world problem, having more information about the API and the requirements, maybe
-the aproach of this implementation might have been different (e.g. exposing it through a computer network) 
+the approach of this implementation might have been different (e.g. exposing it through a computer network) 
+- Use of framework for dependency injection
 
 Regarding tests
 - Find a way to integrate Spock with Kotlin without using "open" keyword for just testing purposes

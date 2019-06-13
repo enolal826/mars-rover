@@ -7,7 +7,7 @@ import rover.app.marsrover.MarsRover
 
 open class MarsRoverFactory {
 
-    open fun createMarsRover(position: Position, map: Map): MarsRoverServiceImpl {
+    open fun createMarsRoverService(position: Position, map: Map): MarsRoverServiceImpl {
         return MarsRoverServiceImpl(
                 locator = Locator(map),
                 marsRover = MarsRover(position)
