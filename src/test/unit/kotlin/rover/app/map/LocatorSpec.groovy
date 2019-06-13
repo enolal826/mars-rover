@@ -36,9 +36,9 @@ class LocatorSpec extends Specification {
             map.numberOfColumns() >> 5
             map.numberOfRows() >> 5
         when:
-            locator.move(movement, startingPosition)
+            def result = locator.move(movement, startingPosition)
         then:
-            startingPosition == endingPosition
+            result == endingPosition
         where:
             desc       | movement    | startingPosition     | endingPosition
             "left"     | MOVEMENT_1  | STARTING_POSITION_1  | ENDING_POSITION_1

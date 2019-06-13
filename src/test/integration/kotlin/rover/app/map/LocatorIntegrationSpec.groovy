@@ -40,9 +40,9 @@ class LocatorIntegrationSpec extends Specification {
     @Unroll
     def "move - happy case #desc"() {
         when:
-            locator.move(movement, startingPosition)
+            def result = locator.move(movement, startingPosition)
         then:
-            startingPosition == endingPosition
+            result == endingPosition
         where:
             desc       | movement    | startingPosition     | endingPosition
             "left"     | MOVEMENT_1  | STARTING_POSITION_1  | ENDING_POSITION_1
@@ -55,7 +55,6 @@ class LocatorIntegrationSpec extends Specification {
         when:
             locator.move(MOVEMENT_5, STARTING_POSITION_5)
         then:
-            STARTING_POSITION_5 == ENDING_POSITION_5
             thrown(CellNotFreeException)
     }
 

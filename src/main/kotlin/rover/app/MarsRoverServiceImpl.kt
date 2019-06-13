@@ -11,7 +11,8 @@ open class MarsRoverServiceImpl(
         private val marsRover: MarsRover): MarsRoverService {
 
     override fun move(movement: Movement) {
-        locator.move(movement, marsRover.position)
+        val nextPosition = locator.move(movement, marsRover.position)
+        marsRover.position = nextPosition
     }
 
     override fun getRoverPosition(): Position {

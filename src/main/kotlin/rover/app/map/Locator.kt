@@ -8,8 +8,8 @@ import rover.app.exception.CellNotFreeException
 
 open class Locator(private val map: Map) {
 
-    open fun move(movement: Movement, position: Position) {
-        val nextPosition = position.copy()
+    open fun move(movement: Movement, position: Position): Position {
+        val nextPosition = position.duplicate()
 
         when (movement) {
             Movement.FORWARD -> moveForward(nextPosition)
@@ -21,7 +21,7 @@ open class Locator(private val map: Map) {
         normalizePosition(nextPosition)
         checkIfValidPosition(nextPosition)
 
-        position.fillWith(nextPosition)
+        return nextPosition
     }
 
     private fun moveForward(position: Position) {
@@ -77,7 +77,7 @@ open class Locator(private val map: Map) {
         }
     }
 
-    private fun Position.copy(): Position {
+    private fun Position.duplicate(): Position {
         return Position(Point(point.x, point.y), cardinalPoint)
     }
 
