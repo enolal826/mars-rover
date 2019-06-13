@@ -1,8 +1,13 @@
 # MARS ROVER - Wallapop
 
+## Setup
+To run the app:
 
-**Important:** I haven't managed to configure Maven to generate a Kotlin executable.
-I'm new to Kotlin and that is the first improvement of this development
+    mvn clean install
+
+A ```.jar``` should be generated at ```/target```.
+
+Run ````java -jar rover-1.0-SNAPSHOT-jar-with-dependencies.jar````
 
 ## Package distribution
 The aim of this application is to provide a common interface for the movement
