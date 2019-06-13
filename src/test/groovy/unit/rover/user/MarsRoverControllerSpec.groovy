@@ -43,6 +43,6 @@ class MarsRoverControllerSpec extends Specification {
         when:
             marsRoverController.execute()
         then:
-            1 * marsRoverService.getRoverPosition()
+            1 * marsRoverService.getMarsRoverPosition()
     }
 }

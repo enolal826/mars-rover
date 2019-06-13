@@ -17,7 +17,7 @@ class MarsRoverController(private val marsRoverDataReader: MarsRoverDataReader,
                 service.move(it)
             }
         } catch (e: CellNotFreeException) {
-            println(message = "An obstacle has been found. The rover is now at " + service.getRoverPosition())
+            println(message = "An obstacle has been found. The rover is now at " + service.getMarsRoverPosition())
         }
     }
 

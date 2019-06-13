@@ -15,7 +15,7 @@ open class MarsRoverServiceImpl(
         marsRover.position = nextPosition
     }
 
-    override fun getRoverPosition(): Position {
+    override fun getMarsRoverPosition(): Position {
         return marsRover.position
     }
 }

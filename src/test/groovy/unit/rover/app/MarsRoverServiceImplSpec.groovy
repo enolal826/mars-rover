@@ -43,7 +43,7 @@ class MarsRoverServiceImplSpec extends Specification{
         given:
             marsRover.position >> POSITION
         when:
-            def result = marsRoverService.getRoverPosition()
+            def result = marsRoverService.getMarsRoverPosition()
         then:
             result == POSITION
 

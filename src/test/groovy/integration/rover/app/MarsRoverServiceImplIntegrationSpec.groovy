@@ -23,7 +23,7 @@ class MarsRoverServiceImplIntegrationSpec extends Specification{
 
     def "getRoverPosition returns initial position"() {
         when:
-            def result = marsRoverService.getRoverPosition()
+            def result = marsRoverService.getMarsRoverPosition()
         then:
             result == STARTING_POSITION
 
@@ -33,7 +33,7 @@ class MarsRoverServiceImplIntegrationSpec extends Specification{
         when:
             marsRoverService.move(Movement.LEFT)
         then:
-            marsRoverService.getRoverPosition() == ENDING_POSITION
+            marsRoverService.getMarsRoverPosition() == ENDING_POSITION
     }
 
 }
