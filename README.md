@@ -1,5 +1,9 @@
 # MARS ROVER - Wallapop
 
+
+**Important:** I haven't been managed to configure Maven to generate a Kotlin executable.
+I'm new to Kotlin and that is the first improvement of this development
+
 ## Package distribution
 The aim of this application is to provide a common interface for the movement
 of the Mars Rover around a map.
