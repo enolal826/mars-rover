@@ -55,6 +55,15 @@ considering the zero (0) matches with the natural zero position in a matrix. Tha
 | (0,3) | (1,3) | (2,3) |
 
 ## Test
-**Important:** I have used the Spock framework, which has some limitations working with Kotlin
+**Important:** I have used the Spock framework, which has some limitations working with Kotlin.
 As any class, function or member is "final" in Kotlin, I have added the keyword "open" just for
 testing purposes.
+
+## Improvements
+- In a real-world problem, having more information about the API and the requirements, maybe
+the aproach of this implementation might have been different (e.g. exposing it through a computer network) 
+
+Regarding tests
+- Find a way to integrate Spock with Kotlin without using "open" keyword for just testing purposes
+- Map class unit testing, finding the way to mock array Kotlin built-in class
+- Unify data used in test when possible to avoid duplicate code

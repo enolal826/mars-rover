@@ -43,21 +43,25 @@ open class Locator(private val map: Map) {
     }
 
     private fun moveLeft(position: Position) {
-        when(position.cardinalPoint) {
-            CardinalPoint.NORTH -> position.cardinalPoint = CardinalPoint.WEST
-            CardinalPoint.WEST -> position.cardinalPoint = CardinalPoint.SOUTH
-            CardinalPoint.SOUTH -> position.cardinalPoint = CardinalPoint.EAST
-            CardinalPoint.EAST -> position.cardinalPoint = CardinalPoint.NORTH
+        var cardinalPoint = when(position.cardinalPoint) {
+            CardinalPoint.NORTH -> CardinalPoint.WEST
+            CardinalPoint.WEST -> CardinalPoint.SOUTH
+            CardinalPoint.SOUTH -> CardinalPoint.EAST
+            CardinalPoint.EAST -> CardinalPoint.NORTH
         }
+
+        position.cardinalPoint = cardinalPoint
     }
 
     private fun moveRight(position: Position) {
-        when(position.cardinalPoint) {
-            CardinalPoint.NORTH -> position.cardinalPoint = CardinalPoint.EAST
-            CardinalPoint.WEST -> position.cardinalPoint = CardinalPoint.NORTH
-            CardinalPoint.SOUTH -> position.cardinalPoint = CardinalPoint.WEST
-            CardinalPoint.EAST -> position.cardinalPoint = CardinalPoint.SOUTH
+        var cardinalPoint = when(position.cardinalPoint) {
+            CardinalPoint.NORTH -> CardinalPoint.EAST
+            CardinalPoint.WEST -> CardinalPoint.NORTH
+            CardinalPoint.SOUTH -> CardinalPoint.WEST
+            CardinalPoint.EAST -> CardinalPoint.SOUTH
         }
+
+        position.cardinalPoint = cardinalPoint
     }
 
     private fun normalizePosition(position: Position) {
