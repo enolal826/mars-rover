@@ -14,10 +14,10 @@ class MarsRoverServiceImplIntegrationSpec extends Specification{
     private STARTING_POSITION = new Position(new Point(2,3), CardinalPoint.SOUTH)
     private ENDING_POSITION = new Position(new Point(2,3), CardinalPoint.EAST)
 
-    Map map = new Map(5,5 )
+    private Map map = new Map(5,5 )
 
-    Locator locator = new Locator(map)
-    MarsRover mars = new MarsRover(STARTING_POSITION)
+    private Locator locator = new Locator(map)
+    private MarsRover mars = new MarsRover(STARTING_POSITION)
 
     private MarsRoverServiceImpl marsRoverService = new MarsRoverServiceImpl(locator, mars)
 

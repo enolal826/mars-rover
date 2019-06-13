@@ -28,7 +28,6 @@ class LocatorIntegrationSpec extends Specification {
 
     private static MOVEMENT_5 = Movement.BACKWARD
     private static STARTING_POSITION_5 = new Position(new Point(1,3), CardinalPoint.SOUTH)
-    private static ENDING_POSITION_5 = new Position(new Point(1,3), CardinalPoint.SOUTH)
 
     private Map map = new Map(6,4)
     private Locator locator = new Locator(map)

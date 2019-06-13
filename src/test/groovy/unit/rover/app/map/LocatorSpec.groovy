@@ -10,9 +10,6 @@ import spock.lang.Unroll
 
 class LocatorSpec extends Specification {
 
-    private Map map = Mock(Map)
-    private Locator locator = new Locator(map)
-
     private static MOVEMENT_1 = Movement.LEFT
     private static STARTING_POSITION_1 = new Position(new Point(2,3), CardinalPoint.SOUTH)
     private static ENDING_POSITION_1 = new Position(new Point(2,3), CardinalPoint.EAST)
@@ -28,6 +25,9 @@ class LocatorSpec extends Specification {
     private static MOVEMENT_4 = Movement.BACKWARD
     private static STARTING_POSITION_4 = new Position(new Point(0,3), CardinalPoint.NORTH)
     private static ENDING_POSITION_4 = new Position(new Point(0,4), CardinalPoint.NORTH)
+
+    private Map map = Mock(Map)
+    private Locator locator = new Locator(map)
 
     @Unroll
     def "move - happy case with #desc movement"() {

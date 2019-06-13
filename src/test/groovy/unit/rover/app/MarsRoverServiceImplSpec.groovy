@@ -11,8 +11,8 @@ import spock.lang.Specification
 
 class MarsRoverServiceImplSpec extends Specification{
 
-    private def POSITION = new Position(new Point(1,1), CardinalPoint.EAST)
-    private def MOVEMENT = Movement.FORWARD
+    private POSITION = new Position(new Point(1,1), CardinalPoint.EAST)
+    private MOVEMENT = Movement.FORWARD
 
     private Locator locator = Mock(Locator)
     private MarsRover marsRover = Mock(MarsRover)

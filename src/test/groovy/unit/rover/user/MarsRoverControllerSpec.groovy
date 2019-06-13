@@ -12,10 +12,10 @@ import spock.lang.Specification
 
 class MarsRoverControllerSpec extends Specification {
 
-    private def POSITION = new Position(new Point(1,1), CardinalPoint.EAST)
-    private def MAP = new Map(5,5)
-    private def MARS_ROVER_SETUP = new MarsRoverSetup(POSITION, MAP)
-    private def MOVEMENT_LIST = [Movement.FORWARD, Movement.FORWARD, Movement.LEFT, Movement.BACKWARD]
+    private POSITION = new Position(new Point(1,1), CardinalPoint.EAST)
+    private MAP = new Map(5,5)
+    private MARS_ROVER_SETUP = new MarsRoverSetup(POSITION, MAP)
+    private MOVEMENT_LIST = [Movement.FORWARD, Movement.FORWARD, Movement.LEFT, Movement.BACKWARD]
 
     private MarsRoverDataReader marsRoverDataReader = Mock()
     private MarsRoverFactory marsRoverFactory = Mock()
