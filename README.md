@@ -1,4 +1,4 @@
-# MARS ROVER - Wallapop
+# MARS ROVER
 
 ## Setup
 To run the app:
